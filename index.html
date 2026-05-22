@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>COSMIC RUNNER - Escape Educativo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-wrapper">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- UI holográfica -->
+        <div id="ui-overlay">
+            <div class="holo-panel" id="panel-lives">❤️‍🔥 x <span id="lives-display">3</span></div>
+            <div class="holo-panel" id="panel-score">⭐ <span id="score-display">0</span></div>
+            <div class="holo-panel" id="panel-level">🌌 Nivel <span id="level-display">1</span></div>
+            <div class="holo-panel" id="panel-chase">
+                🏃 Persecución
+                <div id="chase-bar-outer"><div id="chase-bar-inner" style="width:20%"></div></div>
+            </div>
+            <div id="question-panel">
+                <div id="question-category">CATEGORÍA</div>
+                <div id="question-text">¿Pregunta?</div>
+                <div class="options-row" id="options-container"></div>
+            </div>
+        </div>
+
+        <!-- Controles táctiles -->
+        <div id="touch-controls">
+            <div class="touch-dpad">
+                <button class="touch-btn" id="btn-left" aria-label="Izquierda">◀</button>
+            </div>
+            <button class="touch-btn jump-btn" id="btn-jump" aria-label="Saltar">⬆</button>
+            <div class="touch-dpad">
+                <button class="touch-btn" id="btn-right" aria-label="Derecha">▶</button>
+            </div>
+        </div>
+
+        <!-- Menú principal -->
+        <div class="screen-overlay" id="menu-screen">
+            <div class="screen-title">🚀 COSMIC RUNNER</div>
+            <div class="screen-subtitle">ESCAPE EDUCATIVO INTERGALÁCTICO</div>
+            <div style="color:#aaa;font-size:0.7rem;margin-bottom:8px;">DIFICULTAD</div>
+            <div class="difficulty-select" id="difficulty-select">
+                <button class="diff-btn" data-diff="basic">Básico</button>
+                <button class="diff-btn selected" data-diff="medium">Medio</button>
+                <button class="diff-btn" data-diff="hard">Difícil</button>
+                <button class="diff-btn" data-diff="expert">Experto</button>
+            </div>
+            <button class="screen-btn" id="btn-start">▶ INICIAR</button>
+            <button class="screen-btn purple" id="btn-howto">ℹ CÓMO JUGAR</button>
+        </div>
+
+        <!-- Game Over -->
+        <div class="screen-overlay hidden" id="gameover-screen">
+            <div class="screen-title">💀 ATRAPADO</div>
+            <div class="screen-subtitle" id="gameover-score">Puntuación: 0</div>
+            <button class="screen-btn" id="btn-restart">🔄 REINTENTAR</button>
+            <button class="screen-btn purple" id="btn-menu">🏠 MENÚ</button>
+        </div>
+
+        <!-- Cómo jugar -->
+        <div class="screen-overlay hidden" id="howto-screen">
+            <div class="screen-title">ℹ CÓMO JUGAR</div>
+            <div class="howto-text">
+                🏃 Corres automáticamente<br>
+                👾 Un enemigo te persigue<br>
+                ⚡ Esquiva obstáculos (A/D o ← →)<br>
+                🦘 Salta con Espacio<br>
+                ❓ Responde preguntas para avanzar<br>
+                ✅ Respuesta correcta = aceleras<br>
+                ❌ Respuesta incorrecta = te alcanzan<br>
+                🎯 ¡Sobrevive y aprende!
+            </div>
+            <button class="screen-btn" id="btn-howto-back">◀ VOLVER</button>
+        </div>
+    </div>
+
+    <!-- Scripts en orden de dependencia -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/obstacles.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
